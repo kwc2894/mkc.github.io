@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<!--Quite a few clients strip your Doctype out, and some even apply their own. Many clients do honor your doctype and it can make things much easier if you can validate constantly against a Doctype.-->
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MKC Mindful</title>
+
+<!-- Please use an inliner tool to convert all CSS to inline as inpage or external CSS is removed by email clients -->
+<!-- important in CSS is used to prevent the styles of currently inline CSS from overriding the ones mentioned in media queries when corresponding screen sizes are encountered -->
+
+<style type="text/css">
+  body {
+    margin: 0;
+    background-color: rgba(32,36,41,1.00);
+  }
+  .myImg{
+      cursor: pointer;
+      border-radius: 5px;
+      border: 10px solid transparent;
+      transition: 0.3s;
+      border-image: url("images/HUDHorizontal.png") 30 stretch;
+  }
+  .myImg:hover {opacity: 0.7;}
+  .modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  .modal-content, #caption {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+    /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+    .modal-content {
+      width: 100%;
+    }
+  }
+    
+  body, table, td, p, a, li, blockquote {
+    -webkit-text-size-adjust: none!important;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 400;
+  }
+  button {
+    width: 90%;
+  }
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    background-color: rgba(32,36,41,1.00);
+  }
+    header {
+    width: 99.%;
+    height: 50%;
+    background-color: #000000;
+    border: solid #6E6E6E;
+  }
+  .logo {
+    color: #fff;
+    font-weight: bold;
+    text-align: undefined;
+    width: 10%;
+    float: left;
+    margin-top: 15px;
+    margin-left: 25px;
+    letter-spacing: 4px;
+    font-family: fleshandblood
+  }
+  nav {
+    float: right;
+    width: 50%;
+    text-align: center;
+    margin-right: 100px;
+    margin-left: 50px;
+    padding-right: 130px;
+    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+  }
+  header nav ul {
+    list-style: none;
+    float: center;
+  }
+  nav ul li {
+    float: left;
+    color: #FFFFFF;
+    font-size: 14px;
+    text-align: center;
+    margin-right: 25px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    transition: all 0.3s linear;
+  }
+  ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+  ul li:hover a {
+    color: #2C9AB7;
+  }
+  
+  @media screen and (max-width:600px) {
+  /*styling for objects with screen size less than 600px; */
+  body, table, td, p, a, li, blockquote {
+    -webkit-text-size-adjust: none!important;
+    font-family: sans-serif;
+  }
+  table {
+    /* All tables are 100% width */
+    width: 100%;
+  }
+  .footer {
+    /* Footer has 2 columns each of 48% width */
+    height: auto !important;
+    max-width: 48% !important;
+    width: 48% !important;
+  }
+  table.responsiveImage {
+    /* Container for images in catalog */
+    height: auto !important;
+    max-width: 30% !important;
+    width: 30% !important;
+  }
+  table.responsiveContent {
+    /* Content that accompanies the content in the catalog */
+    height: auto !important;
+    max-width: 66% !important;
+    width: 66% !important;
+  }
+  .top {
+    /* Each Columnar table in the header */
+    height: auto !important;
+    max-width: 48% !important;
+    width: 48% !important;
+  }
+  .catalog {
+    margin-left: 0%!important;
+  }
+  }
+  
+  @media screen and (max-width:480px) {
+  /*styling for objects with screen size less than 480px; */
+  body, table, td, p, a, li, blockquote {
+    -webkit-text-size-adjust: none!important;
+    font-family: sans-serif;
+  }
+  table {
+    /* All tables are 100% width */
+    width: 100% !important;
+    border-style: none !important;
+  }
+  .footer {
+    /* Each footer column in this case should occupy 96% width  and 4% is allowed for email client padding*/
+    height: auto !important;
+    max-width: 96% !important;
+    width: 96% !important;
+  }
+  .table.responsiveImage {
+    /* Container for each image now specifying full width */
+    height: auto !important;
+    max-width: 96% !important;
+    width: 96% !important;
+  }
+  .table.responsiveContent {
+    /* Content in catalog  occupying full width of cell */
+    height: auto !important;
+    max-width: 96% !important;
+    width: 96% !important;
+  }
+  .top {
+    /* Header columns occupying full width */
+    height: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .catalog {
+    margin-left: 0%!important;
+  }
+  button {
+    width: 90%!important;
+  }
+  }
+  .copyright {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #717070;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    border-top-width: 2px;
+    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif"
+  }
+  .footer_banner {
+  /*	background-color: #B3B3B3;*/
+    padding-top: 60px;
+    padding-bottom: 60PX;
+    margin-bottom: 0px;
+    background-image: url(../images/pattern.png);
+    background-repeat: repeat;
+  }
+  footer {
+    display: inline-block;
+  }
+  .hidden {
+    display: none;
+  }
+  .tagline {
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 5px;
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: Baskerville;
+  }
+  </style>
+</head>
+<body>
+	<div class="container"> 
+  <!-- Navigation -->
+		  <header> <a href="index.html">
+    <h4 class="logo">MKC&nbsp;</h4>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html" style="font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif'">HOME</a></li>
+        <li><a href="index.html#about" style="font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif'">ABOUT</a></li>
+		    <li><a href="PortfolioProjects.html" style="font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif'">PORTFOLIO</a></li>
+        <li><a href="index.html#contact" style="font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif'">CONTACT</a></li>
+      </ul>
+    </nav>
+  </header>
+	</div>
+	<!-- The Modal -->
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+<table width="100%"  cellspacing="0" cellpadding="0">
+  <tbody>
+    <tr>
+      <td><table width="600"  align="center" cellpadding="0" cellspacing="0">
+          <!-- Main Wrapper Table with initial width set to 60opx -->
+          <tbody>
+            <tr> 
+              <!-- HTML Spacer row -->
+              <td style="font-size: 0; line-height: 0;" height="20"><table width="96%" align="left"  cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr> 
+              <!-- HTML IMAGE SPACER -->
+              <td style="font-size: 0; line-height: 0;" height="20"><table align="left"  cellpadding="0" cellspacing="0" >
+                  <tr>
+                    <td ><img src="images/Screen Shot 2022-05-04 at 3.45.06 PM.png"  alt="" height="" width="100%" class=""></td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr> 
+              <!-- HTML Spacer row -->
+              <td style="font-size: 0; line-height: 0;" height="20"><table width="96%" align="left"  cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr> 
+              <!-- Introduction area -->
+              <td><table width="96%"  align="left" cellpadding="0" cellspacing="0">
+                  <tr> 
+                    <!-- row container for TITLE/EMAIL THEME -->
+                    <td align="center" style="font-size: 32px; font-weight: 300; line-height: 2.5em; color: #929292; font-family: sans-serif;">Mindful&nbsp;</td>
+                  </tr>
+                  <tr> 
+                    <!-- row container for Tagline -->
+                    <td align="center" style="font-size: 16px; font-weight:300; color: #929292; font-family: sans-serif;">Personal Project&nbsp; </td>
+                  </tr>
+				    <tr> 
+                    <!-- row container for Tagline -->
+                    <td align="center" style="font-size: 16px; font-weight:300; color: #929292; font-family: sans-serif;">Role: Designer/Tester/Test Case&nbsp; </td>
+                  </tr>
+                  <tr> 
+                    <!-- Row container for Intro/ Description -->
+                    <td align="center" style="font-size: 16px; font-weight:300; color: #929292; font-family: sans-serif;"><a href="https://www.figma.com/proto/PxS8G5hlEug6cO6RbowS7E8m/Mindfull?scaling=contain&redirected=1&node-id=32%3A388">Figma Link</a></td>
+                  </tr>
+                  <tr>
+                    <td style="font-size: 0; line-height: 0;" height="20"><table width="96%" align="left"  cellpadding="0" cellspacing="0">
+                        <tr> 
+                          <!-- HTML Spacer row -->
+                          <td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td>
+                        </tr>
+                      </table></td>
+                  </tr>
+                  <tr> 
+                    <!-- Row container for Intro/ Description -->
+                    <td align="left" style="font-size: 14px; font-style: normal; font-weight: 100; color: #929292; line-height: 1.8; text-align:justify; padding:10px 20px 0px 20px; font-family: sans-serif;">Challenge:Mental health issues plague our society - especially teens and young adults. Many do not seek professional help or any help at all. We aimed to create this application to either assist with professional help or encourage users to seek it if needed while giving them the resources to monitor themselves and look into different options for help. It is extremely important to maintain a positive approach when creating all aspects of this application as well as informing but not pressuring users to use the resources provided to get help if necessary or if they feel that they should.</td>
+                  </tr>
+				  <tr> 
+                    <!-- Row container for Intro/ Description -->
+                    <td align="left" style="font-size: 14px; font-style: normal; font-weight: 100; color: #929292; line-height: 1.8; text-align:justify; padding:10px 20px 0px 20px; font-family: sans-serif;">Solution: We set to create a prototype of an app that not only provides the neccessary resources for those in need. But also provides an outlet to set goals and even write out throughts about how their days go as people with Social Anxiety (like myself), depression and other obstacles that weigh heavily over others way of thinking would benefit greatly from a form of organizational tracking on how they are doing and where they could go afterwards in a positive manner</td>
+                  </tr>
+                  <tr> 
+                    <!-- Row container for Intro/ Description -->
+                    <td align="left" style="font-size: 14px; font-style: normal; font-weight: 100; color: #929292; line-height: 1.8; text-align:justify; padding:10px 20px 0px 20px; font-family: sans-serif;">DISCLAIMER: All people involved with the development and design of this prototype(including myself) are not mental health professionals as we did our best with the information at our disposal Any and all infomation /advice should be taken with careful considerations</td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr>
+              <td><table cellpadding="0" cellspacing="0" align="center" width="84%" style="margin-left:12.5%" class="catalog">
+                  <!-- Table for catalog -->
+                  <tr>
+                    <td ><table class ="responsive-table" width="48%"  cellspacing="0" cellpadding="0" align="left" style="margin: 10px 0px 10px 0px;">
+                        <!-- Table container for each image and description in catalog -->
+                        <tbody>
+                          <tr>
+                            <td><table class="table.responsiveImage" width="66%"  cellspacing="0" cellpadding="0" align="left">
+                                <!-- Table container for image -->
+                                <tbody>
+                                  <tr>
+                                    <td align="center" style="padding:10px 3px 10px 3px;"><img class="myImg" src="images/IMG_0868.jpeg" alt="Storyboarding 1" style="width: 120px; height:150px;"></td>
+                                  </tr>
+                                </tbody>
+								<tbody>
+                                  <tr>
+                                    <td align="center" style="padding:10px 3px 10px 3px;"><img class="myImg" src="images/IMG_0869.jpeg" alt="Storyboarding 2" style="width: 120px; height:150px;"></td>								
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <table class="table.responsiveContent" width="66%"  cellspacing="0" cellpadding="0" align="left">
+                                <!-- Table container for content -->
+                                <tbody>
+                                  <tr>
+                                    <td><p style="font-size: 14px; font-style: normal; font-weight: normal; color: #929292;  padding: 5px 0px 0px 10px;line-height: 1.5em; font-family: sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Storyboarding&nbsp;</p>
+                                      <a href="#" style="text-decoration:none">
+                                      </a></td>
+                                  </tr>
+                                </tbody>
+                              </table></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class ="responsive-table" width="48%"  cellspacing="0" cellpadding="0" align="left" style="margin: 10px 0px 10px 0px;">
+                        <!-- Table container for each image and description in catalog -->
+                        <tbody>
+                          <tr>
+                            <td><table class="table.responsiveImage" width="66%"  cellspacing="0" cellpadding="0" align="left">
+                                <!-- Table container for image -->
+                                <tbody>
+                                  <tr>
+                                    <td align="center" style="padding:10px 3px 10px 3px;"><img class="myImg" src="images/Screen Shot 2022-05-04 at 3.38.41 PM.png" alt="Design 1" style="width: 120px; height: 150px;"></td>
+                                  </tr>
+                                </tbody>
+								<tbody>
+                                  <tr>
+                                    <td align="center" style="padding:10px 3px 10px 3px;"><img class="myImg" src="images/Screen Shot 2022-05-04 at 3.39.08 PM.png" alt="Design 2" style="width: 120px; height: 150px;"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <table class="table.responsiveContent" width="66%"  cellspacing="0" cellpadding="0" align="left">
+                                <!-- Table container for content -->
+                                <tbody>
+                                  <tr>
+                                    <td><p style="font-size: 14px; font-style: normal; font-weight: normal; color: #929292;  padding: 5px 0px 0px 10px;line-height: 1.5em; font-family: sans-serif;">&nbsp; &nbsp; &nbsp; Low-fi Prototype</p>
+                                      </td>
+                                  </tr>
+                                </tbody>
+                              </table></td>
+                          </tr>
+                        </tbody>
+                      </table></td>
+                  </tr>
+                  <tr>
+                    <td><table class ="responsive-table" width="48%"  cellspacing="0" cellpadding="0" align="left" style="margin: 10px 0px 10px 0px;">
+                        <!-- Table container for each image and description in catalog -->
+                        <tbody>
+                          <tr>
+                            <td><table class="table.responsiveImage" width="66%"  cellspacing="0" cellpadding="0" align="left">
+                                <!-- Table container for image -->
+                                <tbody>
+                                  <tr>
+                                    <td align="center" style="padding:10px 3px 10px 3px;"><img class="myImg" src="images/Screen Shot 2022-05-04 at 4.25.38 PM.png" alt="Test Script Sample" style="width: 120px; height: 150px;"></td>
+                                  </tr>
+                                </tbody>
+                                <tbody>
+                                  <tr>
+                                    <td align="center" style="padding:10px 3px 10px 3px;"><img class="myImg" src="images/Screen Shot 2022-05-04 at 4.26.30 PM.png" alt="Test Data Sample" style="width: 120px; height: 150px;"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <table class="table.responsiveContent" width="66%"  cellspacing="0" cellpadding="0" align="left">
+                                <!-- Table container for content -->
+                                <tbody>
+                                  <tr>
+                                    <td><p style="font-size: 14px; font-style: normal; font-weight: normal; color: #929292;  padding: 5px 0px 0px 10px;line-height: 1.5em; font-family: sans-serif;">&nbsp; Test Script and Data&nbsp;</p>
+									</td>
+                                  </tr>
+                                </tbody>
+                              </table></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <table class ="responsive-table" width="48%"  cellspacing="0" cellpadding="0" align="left" style="margin: 10px 0px 10px 0px;">
+                        <!-- Table container for each image and description in catalog -->
+                        <tbody>
+                          <tr>
+                            <td><table class="table.responsiveImage" width="66%"  cellspacing="0" cellpadding="0" align="left">
+                                <!-- Table container for image -->
+                                <tbody>
+                                  <tr>
+                                    <td align="center" style="padding:10px 3px 10px 3px;"><img class="myImg" src="images/Screen Shot 2022-05-04 at 4.29.45 PM.png" alt="Research sample" style="width: 120px; height: 150px;"></td>
+                                  </tr>
+                                </tbody>
+								   <tbody>
+                                  <tr>
+                                    <td align="center" style="padding:10px 3px 10px 3px;"><img class="myImg" src="images/Screen Shot 2022-05-04 at 4.29.59 PM.png" alt="Research sample" style="width: 120px; height: 150px;"></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <table class="table.responsiveContent" width="66%"  cellspacing="0" cellpadding="0" align="left">
+                                <!-- Table container for content -->
+                                <tbody>
+                                  <tr>
+                                    <td><p style="font-size: 14px; font-style: normal; font-weight: normal; color: #929292;  padding: 5px 0px 0px 10px;line-height: 1.5em; font-family: sans-serif;">&nbsp; &nbsp; &nbsp; &nbsp; Final Design&nbsp;</p>
+									  </td>
+                                  </tr>
+                                </tbody>
+                              </table></td>
+                          </tr>
+                        </tbody>
+                      </table></td>
+                  </tr>
+                </table></td>
+            </tr>
+            <tr> 
+              <!-- HTML spacer row -->
+              <td style="font-size: 0; line-height: 0;" height="20"><table width="96%" align="left"  cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td style="font-size: 0; line-height: 0;" height="20">&nbsp;</td>
+                  </tr>
+                </table></td>
+			  </tr>
+          </tbody>
+        </table></td>
+    </tr>
+  </tbody>
+</table>
+<section class="footer_banner" id="contact">
+  <h2 class="hidden">Footer Banner Section </h2>
+  <p class="tagline">Contact Me&nbsp;</p>
+ <p class="tagline">Email: mkclarkjobs180@gmail.com&nbsp;</p>
+</section>
+<!-- Copyrights Section -->
+<div class="copyright">&copy;2022 - <strong>Michael Kenneth Clark&nbsp;</strong></div> </div>
+<script>
+	// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementsByClassName("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+for(var i=0;i< img.length;i++){
+  img[i].onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+  }
+}
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+	</script>
+</body>
+</html>
