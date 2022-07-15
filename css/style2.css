@@ -1,0 +1,412 @@
+  body {
+    margin: 0;
+    background-color: rgba(32,36,41,1.00);
+  }
+  header{
+    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+  }
+  .myImg{
+      cursor: pointer;
+      border-radius: 5px;
+      border: 10px solid transparent;
+      transition: 0.3s;
+      border-image: url("../images/HUDHorizontal.png") 30 stretch;
+      margin-left: 0 auto;
+      margin-right: 0 auto;
+      margin: 10px 0px 10px 0px;
+  }
+  .myImg:hover {opacity: 0.7;}
+  .modal{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  .modal-content, #caption {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+    /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+    .modal-content {
+      width: 100%;
+    }
+  }
+    
+  body, p, a, li, blockquote {
+    -webkit-text-size-adjust: none!important;
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 400;
+  }
+  button {
+    width: 90%;
+  }
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    background-color: rgba(32,36,41,1.00);
+  }
+    header {
+    width: 99.%;
+    height: 50%;
+    background-color: #000000;
+    border: solid #6E6E6E;
+  }
+  .logo {
+    color: #fff;
+    font-weight: bold;
+    text-align: undefined;
+    width: 10%;
+    float: left;
+    margin-top: 15px;
+    margin-left: 25px;
+    letter-spacing: 4px;
+    font-family: fleshandblood
+  }
+  nav {
+	float: right;
+	width: 50%;
+	text-align: center;
+	margin-right: 100px;
+	margin-left: 50px;
+	padding-right: 130px;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+}
+header nav ul {
+	list-style: none;
+	float: center;
+}
+nav ul li {
+	float: left;
+	color: #FFFFFF;
+	font-size: 14px;
+	text-align: center;
+	margin-right: 25px;
+	letter-spacing: 2px;
+	transition: all 0.3s linear;
+}
+ul li a {
+	color: #FFFFFF;
+	text-decoration: none;
+}
+ul li:hover a {
+	color: #e1e36c;
+}
+ 
+table {
+  margin: 0 auto;
+}
+
+table td {
+  text-align: center;
+  font-family: Baskerville;
+  color: #f1f1f1;
+}
+table td .title-email {
+    font-size: 32px; 
+    font-weight: 300; 
+    line-height: 2.5em; 
+    color: #929292; 
+    font-family: sans-serif;
+}
+table td .tag {
+    font-size: 16px; 
+    font-weight:300; 
+    color: #929292; 
+    font-family: sans-serif;
+}
+table td .noheight {
+    font-size: 0; 
+    line-height: 0;
+}
+table td .description {
+    font-size: 14px; 
+    font-style: normal; 
+    font-weight: 100; 
+    color: #929292; 
+    line-height: 1.8; 
+    text-align:justify; 
+    padding:10px 20px 0px 20px; 
+    font-family: sans-serif;
+}
+table .catalog{
+  margin-left: auto;
+  margin-right: auto;
+}
+table.responsive-table{
+  margin-left: auto;
+  margin-right: auto;
+} 
+.table.responsiveContent{
+  margin: auto;
+  text-align: center;
+}
+  @media screen and (max-width:600px) {
+  /*styling for objects with screen size less than 600px; */
+  body, table, td, p, a, li, blockquote {
+    -webkit-text-size-adjust: none!important;
+    font-family: sans-serif;
+  }
+  table {
+    /* All tables are 100% width */
+    width: 100%;
+  }
+  .footer {
+    /* Footer has 2 columns each of 48% width */
+    height: auto !important;
+    max-width: 48% !important;
+    width: 48% !important;
+  }
+  table.responsiveImage {
+    /* Container for images in catalog */
+    height: auto !important;
+    max-width: 30% !important;
+    width: 30% !important;
+  }
+  table.responsiveContent {
+    /* Content that accompanies the content in the catalog */
+    height: auto !important;
+    max-width: 66% !important;
+    width: 66% !important;
+  }
+  .top {
+    /* Each Columnar table in the header */
+    height: auto !important;
+    max-width: 48% !important;
+    width: 48% !important;
+  }
+  .catalog {
+    margin-left: 0%!important;
+  }
+  }
+  
+  @media screen and (max-width:480px) {
+  /*styling for objects with screen size less than 480px; */
+  body, table, td, p, a, li, blockquote {
+    -webkit-text-size-adjust: none!important;
+    font-family: sans-serif;
+  }
+  table {
+    /* All tables are 100% width */
+    width: 100% !important;
+    border-style: none !important;
+    margin-right: 100px;
+    margin-left: 100px;
+  }
+  table.center{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .footer {
+    /* Each footer column in this case should occupy 96% width  and 4% is allowed for email client padding*/
+    height: auto !important;
+    max-width: 96% !important;
+    width: 96% !important;
+  }
+  .table.responsiveImage {
+    /* Container for each image now specifying full width */
+    height: auto !important;
+    max-width: 96% !important;
+    width: 96% !important;
+  }
+  .table.responsiveContent {
+    /* Content in catalog  occupying full width of cell */
+    height: auto !important;
+    max-width: 96% !important;
+    width: 96% !important;
+  }
+  .top {
+    /* Header columns occupying full width */
+    height: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .catalog {
+    margin-left: 0%!important;
+  }
+  button {
+    width: 90%!important;
+  }
+  }
+  .copyright {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #717070;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: lighter;
+    letter-spacing: 2px;
+    border-top-width: 2px;
+    font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif"
+  }
+  .footer_banner {
+    padding-top: 60px;
+    padding-bottom: 60PX;
+    margin-bottom: 0px;
+    background-image: url(../images/pattern.png);
+    background-repeat: repeat;
+  }
+  footer {
+    display: inline-block;
+  }
+  .hidden {
+    display: none;
+  }
+  .tagline {
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 5px;
+    font-weight: lighter;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: Baskerville;
+  }
+  @media (min-width: 321px)and (max-width: 767px) {
+.logo {
+	width: 100%;
+	text-align: center;
+	margin-top: 13px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	color: #FFFFFF;
+}
+.proj {
+	width: 100%;
+	text-align: center;
+	margin-top: 13px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	color: #FFFFFF;
+}
+
+.container header nav {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	width: 100%;
+	float: none;
+	overflow: auto;
+	display: inline-block;
+	background: #000000;
+}
+header nav ul {
+	padding: 0px;
+	float: none;
+}
+nav ul li {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	width: 100%;
+	text-align: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+.text_column {
+	padding-left: 25px;
+	padding-right: 0px;
+	padding-top: 10px;
+	display: inline-block;
+	background-color: rgba(32,36,41,1.00);
+	margin-top: -4px;
+	font-family: Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+	color: white;
+}
+.thumbnail {
+	width: 100%;
+}
+.footer_column {
+	width: 100%;
+	margin-top: 0px;
+}
+
+.thumbnail {
+	width: 50%;
+}
+.parallax {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-top: 20%;
+}
+.parallax_description {
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	padding-left: 0px;
+	width: 100%;
+}
+.banner {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.footer_column {
+	width: 100%;
+}
+}
